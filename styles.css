@@ -1,0 +1,639 @@
+/* ============================= */
+/* 🌴 RESET + FONDO */
+/* ============================= */
+
+body{
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color:#114b2c;
+    line-height:1.6;
+
+    background-image:url("imagenes-fondo/fondo-bali.avif");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ============================= */
+/* 🌴 HEADER */
+/* ============================= */
+
+header{
+    text-align:center;
+    padding:50px 20px 25px;
+}
+
+header h1{
+    font-size:52px;
+    font-weight:900;
+    color:white;
+    letter-spacing:1px;
+
+    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(6px);
+    display:inline-block;
+    padding:15px 35px;
+    border-radius:22px;
+
+    text-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* ============================= */
+/* 🌴 MENÚ */
+/* ============================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(170,205,176,0.35);
+    backdrop-filter:blur(12px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+nav ul{
+    list-style:none;
+    margin:0;
+    padding:16px;
+    display:flex;
+    justify-content:center;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    font-weight:700;
+    font-size:18px;
+    color:#0f5132;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.25s ease;
+}
+
+nav a:hover{
+    background:#2e8b57;
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* SUBMENU */
+
+.submenu{position:relative;}
+
+.dropdown{
+    position:absolute;
+    top:50px;
+    left:0;
+    background:rgba(235,255,240,0.95);
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    padding:10px 0;
+    list-style:none;
+    display:none;
+    min-width:220px;
+}
+
+.submenu:hover .dropdown{display:block;}
+
+.dropdown li{padding:6px 15px;}
+
+.dropdown a{
+    color:#14532d;
+    font-weight:600;
+}
+
+.dropdown a:hover{
+    background:#2e8b57;
+    color:white;
+    border-radius:8px;
+}
+
+/* ============================= */
+/* 🌴 TÍTULOS SECCIÓN */
+/* ============================= */
+
+section h2{
+    text-align:center;
+    font-size:36px;
+    color:white;
+    margin:60px 0 25px;
+    font-weight:900;
+    text-shadow:0 4px 14px rgba(0,0,0,0.6);
+    position:relative;
+}
+
+section h2::after{
+    content:"";
+    display:block;
+    width:140px;
+    height:4px;
+    margin:12px auto 0;
+    border-radius:10px;
+    background:linear-gradient(90deg,#2e8b57,#7ed9a3);
+}
+
+/* ============================= */
+/* 🌴 ARTÍCULOS */
+/* ============================= */
+
+article{
+    background:rgba(215,235,219,0.65);
+    backdrop-filter:blur(6px);
+    border-radius:18px;
+    padding:24px;
+    margin:30px auto;
+    width:85%;
+    box-shadow:0 12px 35px rgba(0,0,0,0.18);
+    transition:0.3s ease;
+}
+
+article:hover{
+    transform:translateY(-4px);
+}
+
+/* TITULO INTERNO */
+
+article h3{
+    color:#0f5132;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+/* ============================= */
+/* 🌴 PÁRRAFOS */
+/* ============================= */
+
+p{
+    font-size:16px;
+    margin:8px 0;
+}
+
+/* ============================= */
+/* 🌴 LISTAS BONITAS */
+/* ============================= */
+
+ul{
+    padding-left:22px;
+}
+
+ul li{
+    margin-bottom:6px;
+    font-size:15px;
+}
+
+/* ============================= */
+/* 🌴 LINKS GENERALES */
+/* ============================= */
+
+a{
+    transition:0.25s ease;
+}
+
+/* BOTONES booking / maps */
+
+.enlaces a,
+.mapa a{
+    display:inline-block;
+    margin-top:12px;
+    padding:9px 15px;
+    border-radius:12px;
+    background:#2e8b57;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.enlaces a:hover,
+.mapa a:hover{
+    background:#1b5e3c;
+    transform:translateY(-2px);
+}
+
+/* ============================= */
+/* 🌴 GALERÍA */
+/* ============================= */
+
+.fotos-lugares{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+    margin-top:15px;
+}
+
+figure{
+    margin:0;
+    width:300px;
+    border-radius:16px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 12px 30px rgba(0,0,0,0.18);
+    transition:0.3s ease;
+}
+
+figure:hover{
+    transform:translateY(-8px);
+}
+
+figure img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+figcaption{
+    padding:10px;
+    font-size:14px;
+    text-align:center;
+    background:#eaf7ec;
+    color:#14532d;
+}
+
+figcaption a{
+    text-decoration:none;
+    color:#1b7f4a;
+    font-weight:bold;
+}
+
+figcaption a:hover{
+    color:#0f5132;
+}
+
+/* ============================= */
+/* 🌿 ESTILO ANIMALISTA NATURAL */
+/* ============================= */
+
+/* TITULOS INTERNOS (h3) */
+article h3{
+    font-size:26px;
+    color:#1b4332;
+    border-left:6px solid #52b788;
+    padding-left:12px;
+    margin-bottom:12px;
+}
+
+/* PÁRRAFOS MÁS SUAVES */
+p{
+    color:#1b4332;
+    font-size:16px;
+}
+
+/* ============================= */
+/* 🐢 LISTAS ECO */
+/* ============================= */
+
+article ul{
+    list-style:none;
+    padding-left:0;
+}
+
+article ul li{
+    position:relative;
+    padding-left:28px;
+    margin-bottom:8px;
+}
+
+/* ICONO HOJA 🌿 */
+article ul li::before{
+    content:"🌿";
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+/* ============================= */
+/* 🦜 ENLACES ESTILO NATURALEZA */
+/* ============================= */
+
+.enlaces a,
+.mapa a{
+    background:linear-gradient(135deg,#40916c,#2d6a4f);
+    border-radius:30px;
+    padding:10px 18px;
+    font-weight:600;
+    letter-spacing:0.3px;
+}
+
+.enlaces a:hover,
+.mapa a:hover{
+    background:linear-gradient(135deg,#2d6a4f,#1b4332);
+    transform:translateY(-2px) scale(1.03);
+}
+
+/* LINKS DENTRO DE FIGCAPTION */
+figcaption a{
+    color:#2d6a4f;
+}
+
+figcaption a:hover{
+    color:#081c15;
+}
+
+/* ============================= */
+/* 🐒 TARJETAS MÁS NATURALES */
+/* ============================= */
+
+article{
+    background:rgba(226,245,232,0.6);
+    border:1px solid rgba(82,183,136,0.3);
+}
+
+/* ============================= */
+/* 🌴 TITULOS DE SECCION MÁS ECO */
+/* ============================= */
+
+section h2::after{
+    background:linear-gradient(90deg,#52b788,#95d5b2);
+}
+
+/* ============================= */
+/* 🐢 GALERIA MÁS ORGÁNICA */
+/* ============================= */
+
+figure{
+    border-radius:20px;
+}
+
+figcaption{
+    background:#edf7f1;
+    font-style:italic;
+}
+
+/* ============================= */
+/* 🐾 ICONOS ANIMALISTAS POR DIA */
+/* ============================= */
+
+/* estilo base */
+.dia h3{
+    position:relative;
+    padding-left:40px;
+}
+
+/* ICONO GENERAL */
+.dia h3::before{
+    position:absolute;
+    left:0;
+    top:0;
+    font-size:24px;
+}
+
+/* 🌴 SEMINYAK */
+.dia:nth-of-type(1) h3::before{ content:"🐢"; }
+.dia:nth-of-type(2) h3::before{ content:"🦜"; }
+.dia:nth-of-type(3) h3::before{ content:"🌺"; }
+
+/* 🌿 UBUD SELVA */
+.dia:nth-of-type(4) h3::before{ content:"🐒"; }
+.dia:nth-of-type(5) h3::before{ content:"🦧"; }
+.dia:nth-of-type(6) h3::before{ content:"💧"; }
+.dia:nth-of-type(7) h3::before{ content:"🌋"; }
+.dia:nth-of-type(8) h3::before{ content:"🌿"; }
+
+/* 🏝️ NUSA PENIDA */
+.dia:nth-of-type(9) h3::before{ content:"🐠"; }
+.dia:nth-of-type(10) h3::before{ content:"🐬"; }
+
+/* 🌅 JIMBARAN */
+.dia:nth-of-type(11) h3::before{ content:"🌊"; }
+
+/* ✈️ VUELTA */
+.dia:nth-of-type(12) h3::before{ content:"🛫"; }
+
+/* 🌿 LINK ACTIVO DEL MENU */
+nav a.activo{
+    background:#1b4332;
+    color:white;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.dropdown{
+    position:absolute;
+    top:50px;
+    left:0;
+    background:rgba(235,255,240,0.95);
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    padding:10px 0;
+    list-style:none;
+    display:none;
+    min-width:220px;
+
+    z-index:99999;     /* 👈 MUY IMPORTANTE */
+}
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    overflow:visible;   /* 👈 ESTO ARREGLA EL CLICK */
+}
+/* 👇 MUY IMPORTANTE */
+nav ul li{
+    position:relative;
+}
+
+/* zona clicable del submenu */
+.submenu{
+    display:block;
+}
+
+/* que el dropdown esté por encima y clicable */
+.dropdown{
+    pointer-events:auto;
+}
+.submenu:hover > .dropdown,
+.dropdown:hover{
+    display:block;
+}
+/* 🔥 ARREGLAR CLICK DEL SUBMENU */
+
+nav ul li{
+    position:relative;
+}
+
+/* El dropdown debe estar por encima */
+.dropdown{
+    position:absolute;
+    top:100%;
+    left:0;
+    z-index:9999;
+}
+
+/* 👇 CLAVE: el enlace padre NO debe bloquear el dropdown */
+.submenu > a{
+    position:relative;
+    z-index:1;
+}
+
+.submenu:hover .dropdown{
+    display:block;
+}
+
+/* ============================= */
+/* 🌴 CONTENEDOR GENERAL */
+/* ============================= */
+
+body{
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ============================= */
+/* 🐾 HERO BALI (BANDA VISUAL) */
+/* ============================= */
+
+.hero-bali{
+    text-align:center;
+    margin:20px auto 30px;
+    padding:25px;
+    border-radius:20px;
+
+    background:linear-gradient(
+        rgba(27,67,50,0.65),
+        rgba(64,145,108,0.65)
+    );
+
+    backdrop-filter:blur(8px);
+    color:white;
+    width:80%;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.hero-bali h2{
+    margin:0;
+    font-size:32px;
+    letter-spacing:1px;
+}
+
+.hero-bali p{
+    margin-top:8px;
+    font-size:17px;
+    color:#e9f5ee;
+}
+
+/* ============================= */
+/* 🌿 SCROLL SUAVE */
+/* ============================= */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ============================= */
+/* 🐒 DIAS CON RUTA NATURAL */
+/* ============================= */
+
+.dia{
+    border-left:6px solid #52b788;
+}
+
+/* ============================= */
+/* 🌴 TARJETAS MÁS PRO */
+/* ============================= */
+
+article{
+    transition:0.4s ease;
+}
+
+article:hover{
+    transform:translateY(-6px);
+}
+
+/* ============================= */
+/* 🌿 FOOTER */
+/* ============================= */
+
+footer{
+    text-align:center;
+    padding:35px;
+    margin-top:50px;
+    color:white;
+
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(6px);
+    border-radius:20px 20px 0 0;
+}
+
+/* ============================= */
+/* ✈️ BOTÓN SKYSCANNER BONITO */
+/* ============================= */
+
+.reserva-vuelo a{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 18px;
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#40916c,#2d6a4f);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:0.3px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);
+    transition:0.25s ease;
+}
+
+.reserva-vuelo a:hover{
+    background:linear-gradient(135deg,#2d6a4f,#1b4332);
+    transform:translateY(-2px) scale(1.03);
+}
+/* ============================= */
+/* 📱 RESPONSIVE MOBILE */
+/* ============================= */
+
+@media (max-width:768px){
+
+/* 🌴 TÍTULO MÁS PEQUEÑO */
+header h1{
+    font-size:30px;
+    padding:10px;
+}
+
+/* 🌿 MENÚ EN COLUMNA */
+nav ul{
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+}
+
+/* SUBMENU CENTRADO */
+.dropdown{
+    position:static;
+    box-shadow:none;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    margin-top:8px;
+}
+
+/* 📦 ARTICLES MÁS ESTRECHOS */
+article{
+    margin:15px 10px;
+    padding:15px;
+}
+
+/* 🖼️ GALERÍA EN UNA SOLA COLUMNA */
+.fotos-lugares{
+    flex-direction:column;
+    align-items:center;
+}
+
+figure{
+    width:90%;
+}
+
+/* 📝 TEXTOS MÁS COMPACTOS */
+p, li{
+    font-size:15px;
+}
+
+/* BOTONES ENLACES */
+.enlaces a,
+.reserva-vuelo a{
+    display:block;
+    text-align:center;
+    margin:10px auto;
+    width:90%;
+}
+
+}
