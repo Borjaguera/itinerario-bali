@@ -754,7 +754,20 @@ window.addEventListener("scroll", () => {
     });
 
 });
+<script>
 
+/* 🔽 CERRAR SUBMENU AL HACER CLICK EN UNA OPCIÓN */
+
+const enlacesDropdown = document.querySelectorAll(".dropdown a");
+const dropdown = document.querySelector(".dropdown");
+
+enlacesDropdown.forEach(link => {
+    link.addEventListener("click", () => {
+        dropdown.style.display = "none";
+    });
+});
+
+</script>
 </script>
 
 </body>
