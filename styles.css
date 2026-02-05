@@ -980,10 +980,11 @@ figcaption a:hover{
 .carta-inner{
     position:relative;
     width:100%;
-    height:190px; /* 👈 mantiene cuadrados perfectos */
+    min-height:190px;   /* 👈 CLAVE REAL */
     transition:transform 0.8s;
     transform-style:preserve-3d;
 }
+
 
 .carta3D.girada .carta-inner{
     transform:rotateY(180deg);
