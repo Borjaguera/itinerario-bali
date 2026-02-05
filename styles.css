@@ -843,3 +843,35 @@ figcaption a:hover{
     opacity:1 !important;
     animation:volarAvion 6s linear infinite;
 }
+/* ============================= */
+/* 🎲 RULETA SORPRESA */
+/* ============================= */
+
+.ruleta-sorpresa{
+    text-align:center;
+    margin-top:20px;
+}
+
+#botonRuleta{
+    background:linear-gradient(135deg,#40916c,#2d6a4f);
+    border:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);
+    transition:0.25s ease;
+}
+
+#botonRuleta:hover{
+    transform:scale(1.05);
+    background:linear-gradient(135deg,#2d6a4f,#1b4332);
+}
+
+#resultadoRuleta{
+    margin-top:12px;
+    font-size:18px;
+    font-weight:800;
+    color:#1b4332;
+}
