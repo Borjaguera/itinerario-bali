@@ -1076,8 +1076,10 @@ clearTimeout(tiempoPresionado);
 }
 
 </script>
+
+
 <!-- =====================================
-📩 EMAIL VISITAS BALI
+📩 EMAIL VISITAS BALI PRO (PAIS + CIUDAD + DISPOSITIVO)
 ===================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -1085,44 +1087,51 @@ clearTimeout(tiempoPresionado);
 <script>
 
 (function(){
-    emailjs.init("VJPbXVQIiUoM1KGWz"); // 👈 pega aquí tu Public Key
+    emailjs.init("VJPbXVQIiUoM1KGWz"); // 👈 CAMBIA POR TU PUBLIC KEY
 })();
 
 window.addEventListener("load", async function(){
-
-    // 🧠 evitar enviar muchos emails si refrescan
-    if(localStorage.getItem("visitadoBali")) return;
-    localStorage.setItem("visitadoBali","true");
 
     // 📱 detectar dispositivo
     const esMovil = /Mobi|Android/i.test(navigator.userAgent);
     const device = esMovil ? "📱 Móvil" : "💻 PC";
 
-    // 🌍 detectar país
+    // 🌍 datos visitante
     let country="Desconocido";
+    let city="Desconocida";
+    let region="Desconocida";
 
     try{
+
         const res = await fetch("https://ipapi.co/json/");
         const data = await res.json();
+
         country = data.country_name;
+        city = data.city;
+        region = data.region;
+
     }catch(e){
-        console.log("No se pudo detectar país");
+        console.log("No se pudo detectar ubicación");
     }
 
-    // 📩 enviar email
+    // 📩 enviar email SIEMPRE que entren
     emailjs.send("service_teme2ps","template_lfy1wji",{
         time:new Date().toLocaleString(),
         country:country,
+        city:city,
+        region:region,
         device:device
     })
-    .then(()=>console.log("📩 Nueva visita enviada"))
-    .catch(err=>console.log("Error email:",err));
+    .then(()=>{
+        console.log("📩 Nueva visita enviada");
+    })
+    .catch((err)=>{
+        console.log("Error email:",err);
+    });
 
 });
 
 </script>
-
-
 </body>
 <footer>
     <p>🌿 Itinerario Animalista por Bali — Diseño de Borja 🐾</p>
