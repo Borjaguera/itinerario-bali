@@ -947,7 +947,7 @@ if(botonRuleta){
 
 
 /* =====================================
-🌀 ROLES 3D UNICOS
+🌀 ROLES 3D ULTRA PRO
 ===================================== */
 
 const botonesRoles = document.querySelectorAll(".btnRol");
@@ -1006,21 +1006,37 @@ botonesRoles.forEach(boton=>{
 
         zona.innerHTML="";
 
-       rolesAsignados[persona].forEach((rol,index)=>{
+        rolesAsignados[persona].forEach((rol,index)=>{
 
-    const div=document.createElement("div");
-    div.classList.add("rolItem");
-    div.textContent=rol;
+            const div=document.createElement("div");
+            div.classList.add("rolItem");
+            zona.appendChild(div);
 
-    zona.appendChild(div);
+            let i=0;
+            function escribir(){
+                if(i<rol.length){
+                    div.textContent+=rol.charAt(i);
+                    i++;
+                    setTimeout(escribir,25);
+                }
+            }
 
-    // 🔥 ANIMACION APARICION (ESTO TE FALTA)
-    setTimeout(()=>{
-        div.classList.add("visible");
-    }, index*250);
+            setTimeout(()=>{
+                escribir();
+                div.classList.add("visible");
+            },index*300);
 
-});
+        });
 
+        // ✨ PARTICULAS
+        for(let i=0;i<12;i++){
+            const p=document.createElement("div");
+            p.classList.add("particula");
+            p.style.left=Math.random()*100+"%";
+            p.style.top="70%";
+            carta.appendChild(p);
+            setTimeout(()=>{ p.remove(); },1000);
+        }
 
     });
 
@@ -1028,50 +1044,39 @@ botonesRoles.forEach(boton=>{
 
 
 /* =====================================
-🔐 RESET SECRETO (PC + MOVIL)
+🔐 RESET SECRETO
 ===================================== */
 
 const tituloPrincipal = document.querySelector("header h1");
 let tiempoPresionado;
 
 window.addEventListener("keydown",(e)=>{
-
     if(e.ctrlKey && e.shiftKey && e.key.toLowerCase()==="b"){
-
         const clave=prompt("🔐 Clave secreta:");
-
         if(clave==="borjaBali2026"){
             localStorage.removeItem("rolesBali");
             location.reload();
         }
     }
-
 });
 
 if(tituloPrincipal){
-
 tituloPrincipal.addEventListener("touchstart",()=>{
-
 tiempoPresionado=setTimeout(()=>{
-
 const clave=prompt("🔐 Clave secreta:");
-
 if(clave==="borjaBali2026"){
 localStorage.removeItem("rolesBali");
 location.reload();
 }
-
 },3000);
-
 });
-
 tituloPrincipal.addEventListener("touchend",()=>{
 clearTimeout(tiempoPresionado);
 });
-
 }
 
 </script>
+
 
 
 </body>
