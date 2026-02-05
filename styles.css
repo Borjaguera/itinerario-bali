@@ -970,43 +970,46 @@ figcaption a:hover{
     opacity:1;
 }
 /* =====================================
-🌀 TARJETAS 3D ROLES PRO (FIX OVERFLOW)
+🌀 TARJETAS 3D ROLES PRO — FIX DEFINITIVO
 ===================================== */
 
 .carta3D{
     perspective:1000px;
+    width:220px;
 }
 
+/* 👇 AHORA LA TARJETA CRECE SOLA */
 .carta-inner{
     position:relative;
     width:100%;
-    min-height:220px;   /* 👈 ALTURA FLEXIBLE */
-    height:auto;
     transition:transform 0.8s;
     transform-style:preserve-3d;
 }
 
+/* GIRO */
 .carta3D.girada .carta-inner{
     transform:rotateY(180deg);
 }
 
+/* CARAS */
 .carta-front,
 .carta-back{
-    position:absolute;
-    inset:0;
+    position:relative;   /* 🔥 CLAVE — YA NO ABSOLUTE */
     width:100%;
-    min-height:220px;
-    backface-visibility:hidden;
+    min-height:190px;
     border-radius:15px;
     padding:15px;
     box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    backface-visibility:hidden;
 }
 
+/* FRENTE */
 .carta-front{
     background:white;
     color:#1b4332;
 }
 
+/* DETRAS */
 .carta-back{
     background:#eaf7ec;
     transform:rotateY(180deg);
@@ -1015,18 +1018,18 @@ figcaption a:hover{
     justify-content:center;
     align-items:center;
     gap:10px;
-    overflow:hidden;
 }
 
+/* CONTENEDOR ROLES */
 .zonaRoles{
     width:100%;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
     gap:8px;
 }
 
+/* ROLES */
 .rolItem{
     background:#ffffff;
     padding:6px 10px;
@@ -1034,11 +1037,10 @@ figcaption a:hover{
     font-weight:700;
     text-align:center;
 
-    /* 🔥 ARREGLO TEXTO LARGO */
     white-space:normal;
-    word-wrap:break-word;
-    overflow-wrap:break-word;
+    word-break:break-word;
 }
+
 
 /* =====================================
 ✨ EFECTO CARTA RARA
