@@ -807,6 +807,7 @@ window.addEventListener("scroll", () => {
 
 });
 
+
 /* =====================================
 ✈️ CONTADOR + AVION
 ===================================== */
@@ -869,6 +870,7 @@ function actualizarContador(){
 setInterval(actualizarContador,1000);
 actualizarContador();
 
+
 /* =====================================
 🎲 RULETA GIGANTE BALI
 ===================================== */
@@ -901,6 +903,7 @@ if(botonRuleta){
         resultadoRuleta.innerHTML = "✨ " + planesSorpresa[random];
     });
 }
+
 
 /* =====================================
 🌀 ROLES INDIVIDUALES (2 POR PERSONA)
@@ -954,59 +957,9 @@ botonesRoles.forEach(boton=>{
     });
 
 });
-/* =====================================
-🌀 ROLES INDIVIDUALES POR PERSONA
-===================================== */
 
-const botonesRoles = document.querySelectorAll(".btnRol");
-
-const rolesAccion = [
-"📸 Jefe/a de fotos oficiales",
-"🧭 Maestro/a del GPS y rutas",
-"🎉 Animador/a del grupo",
-"🎥 Cámara principal del viaje",
-"🍽️ Buscador/a de sitios épicos",
-"🐢 Protector/a animalista",
-"🧃 Encargado/a de snacks tropicales",
-"🌊 Explorador/a de playas secretas"
-];
-
-function mezclar(array){
-    return array.sort(()=>Math.random()-0.5);
-}
-
-botonesRoles.forEach(boton => {
-
-    boton.addEventListener("click", () => {
-
-        const persona = boton.getAttribute("data-persona");
-        const zona = document.getElementById("roles-" + persona);
-
-        if(!zona) return;
-
-        zona.innerHTML = "";
-
-        const rolesMezclados = mezclar([...rolesAccion]);
-        const rolesSeleccionados = rolesMezclados.slice(0,2);
-
-        rolesSeleccionados.forEach((rol,index)=>{
-
-            const div = document.createElement("div");
-            div.className = "rolItem";
-            div.textContent = rol;
-
-            zona.appendChild(div);
-
-            setTimeout(()=>{
-                div.classList.add("visible");
-            }, index*200);
-
-        });
-
-    });
-
-});
 </script>
+
 
 
 </body>
