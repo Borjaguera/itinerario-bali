@@ -579,7 +579,11 @@
 <li><strong>Piscina en la villa</strong></li>
 <li><strong>Día tranquilo</strong></li>
 </ul>
-
+<!-- 🎲 RULETA SORPRESA -->
+<div class="ruleta-sorpresa">
+    <button id="botonRuleta">🎲 Plan sorpresa</button>
+    <p id="resultadoRuleta">Pulsa para descubrir el plan oculto...</p>
+</div>
 <div class="fotos-lugares">
 <figure>
 <img src="imagenes-alojamientos/img-villa.themma2.jpg" alt="Piscina en villa Ubud">
@@ -835,7 +839,28 @@ contador.classList.add("contador-animado");
 // actualizar cada segundo
 setInterval(actualizarContador,1000);
 actualizarContador();
+// =============================
+// 🎲 RULETA SORPRESA DIA 24
+// =============================
 
+const botonRuleta = document.getElementById("botonRuleta");
+const resultadoRuleta = document.getElementById("resultadoRuleta");
+
+const planesSorpresa = [
+    "🧘 Clase privada de yoga al amanecer",
+    "🍉 Desayuno flotante sorpresa en la villa",
+    "🎨 Taller rápido de pintura balinesa",
+    "🌌 Noche de estrellas y charla profunda"
+];
+
+if(botonRuleta){
+    botonRuleta.addEventListener("click", ()=>{
+
+        const random = Math.floor(Math.random()*planesSorpresa.length);
+        resultadoRuleta.innerHTML = planesSorpresa[random];
+
+    });
+}
 </script>
 
 </body>
