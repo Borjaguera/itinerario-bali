@@ -748,6 +748,10 @@
 </section>
 <script>
 
+/* =====================================
+🌴 MENU ACTIVO SCROLL
+===================================== */
+
 const secciones = document.querySelectorAll("section");
 const linksMenu = document.querySelectorAll("nav a");
 
@@ -776,27 +780,16 @@ window.addEventListener("scroll", () => {
 
 });
 
-/* 🔽 CERRAR SUBMENU AL HACER CLICK EN UNA OPCIÓN */
-
-const enlacesDropdown = document.querySelectorAll(".dropdown a");
-const dropdown = document.querySelector(".dropdown");
-
-enlacesDropdown.forEach(link => {
-    link.addEventListener("click", () => {
-        dropdown.style.display = "none";
-    });
-});
-
-// =============================
-// ✈️ CUENTA ATRÁS VUELO BALI
-// =============================
+/* =====================================
+✈️ CONTADOR + AVION
+===================================== */
 
 const contador = document.getElementById("contador");
-
-// Fecha del vuelo (16 marzo 2026 15:15)
 const fechaVuelo = new Date("March 16, 2026 15:15:00").getTime();
 
 function actualizarContador(){
+
+    if(!contador) return;
 
     const ahora = new Date().getTime();
     const diferencia = fechaVuelo - ahora;
@@ -807,30 +800,33 @@ function actualizarContador(){
     }
 
     const dias = Math.floor(diferencia / (1000*60*60*24));
-    const cajaContador = document.querySelector(".contador-vuelo");
-
-// quitar colores anteriores
-cajaContador.classList.remove("contador-verde","contador-naranja","contador-rojo");
-
-// 🎨 cambiar color según días restantes
-if(dias > 30){
-    cajaContador.classList.add("contador-verde");
-}else if(dias <= 30 && dias > 7){
-    cajaContador.classList.add("contador-naranja");
-}else{
-    cajaContador.classList.add("contador-rojo");
-}
-    const avion = document.getElementById("avion");
-
-// ✈️ mostrar avión solo última semana
-if(dias <= 7){
-    avion.classList.add("avion-activo");
-}else{
-    avion.classList.remove("avion-activo");
-}
     const horas = Math.floor((diferencia % (1000*60*60*24)) / (1000*60*60));
     const minutos = Math.floor((diferencia % (1000*60*60)) / (1000*60));
     const segundos = Math.floor((diferencia % (1000*60)) / 1000);
+
+    const cajaContador = document.querySelector(".contador-vuelo");
+
+    if(cajaContador){
+        cajaContador.classList.remove("contador-verde","contador-naranja","contador-rojo");
+
+        if(dias > 30){
+            cajaContador.classList.add("contador-verde");
+        }else if(dias > 7){
+            cajaContador.classList.add("contador-naranja");
+        }else{
+            cajaContador.classList.add("contador-rojo");
+        }
+    }
+
+    const avion = document.getElementById("avion");
+
+    if(avion){
+        if(dias <= 7 && diferencia > 0){
+            avion.classList.add("avion-activo");
+        }else{
+            avion.classList.remove("avion-activo");
+        }
+    }
 
     contador.innerHTML =
         dias + " días " +
@@ -838,57 +834,52 @@ if(dias <= 7){
         minutos + "m " +
         segundos + "s ✈️";
 
-    // ✨ animación suave cada segundo
-contador.classList.remove("contador-animado");
-void contador.offsetWidth; // reinicia animación
-contador.classList.add("contador-animado");
+    contador.classList.remove("contador-animado");
+    void contador.offsetWidth;
+    contador.classList.add("contador-animado");
 }
 
-// actualizar cada segundo
 setInterval(actualizarContador,1000);
 actualizarContador();
-// =============================
-// 🎲 RULETA SORPRESA DIA 24
-// =============================
+
+/* =====================================
+🎲 RULETA GIGANTE BALI
+===================================== */
 
 const botonRuleta = document.getElementById("botonRuleta");
 const resultadoRuleta = document.getElementById("resultadoRuleta");
 
 const planesSorpresa = [
-    "🧘 Clase privada de yoga al amanecer",
-    "🍉 Desayuno flotante sorpresa en la villa",
-    "🎨 Taller rápido de pintura balinesa",
-    "🌌 Noche de estrellas y charla profunda",
-    "🧊 Ice bath en la jungla + respiración consciente",
-    "🍫 Taller artesanal de chocolate balinés",
-    "🏞️ Hidden Canyon trekking entre rocas y agua",
-    "🌌 Cena íntima entre arrozales iluminados",
-    "🎨 Taller privado de arte balinés (batik o madera)",
-    "🐠 Snorkel al atardecer estilo exploración",
-    "🌋 Desayuno con vistas al Batur entre nubes",
-    "🛶 Kayak silencioso entre manglares",
-    "🌺 Crear ofrenda floral balinesa",
-    "🌌 Café nocturno en la jungla",
-    "🪨 Playa volcánica salvaje sin beach club",
-    "🔥 Sauna volcánica natural",
-    ];
+"🧘 Clase privada de yoga al amanecer",
+"🍉 Desayuno flotante sorpresa en la villa",
+"🎨 Taller rápido de pintura balinesa",
+"🌌 Noche de estrellas y charla profunda",
+"🧊 Ice bath en la jungla + respiración consciente",
+"🍫 Taller artesanal de chocolate balinés",
+"🏞️ Hidden Canyon trekking entre rocas y agua",
+"🌌 Cena íntima entre arrozales iluminados",
+"🎨 Taller privado de arte balinés",
+"🐠 Snorkel al atardecer estilo exploración",
+"🌋 Desayuno con vistas al Batur entre nubes",
+"🛶 Kayak silencioso entre manglares",
+"🌺 Crear ofrenda floral balinesa",
+"🌌 Café nocturno en la jungla",
+"🪨 Playa volcánica salvaje sin beach club",
+"🔥 Sauna volcánica natural"
+];
 
 if(botonRuleta){
     botonRuleta.addEventListener("click", ()=>{
-
         const random = Math.floor(Math.random()*planesSorpresa.length);
-        resultadoRuleta.innerHTML = planesSorpresa[random];
-
+        resultadoRuleta.innerHTML = "✨ " + planesSorpresa[random];
     });
 }
-    // =============================
-// 🌀 ROLES EQUIPO ACCION BALI
-// =============================
 
-const botonRoles = document.getElementById("revelarRoles");
-const listaRoles = document.getElementById("listaRoles");
+/* =====================================
+🌀 ROLES INDIVIDUALES (2 POR PERSONA)
+===================================== */
 
-const equipo = ["Borja","Manuelina","Nazaret","Martina"];
+const botonesRoles = document.querySelectorAll(".btnRol");
 
 const rolesAccion = [
 "📸 Jefe/a de fotos oficiales",
@@ -905,22 +896,27 @@ function mezclar(array){
     return array.sort(()=>Math.random()-0.5);
 }
 
-if(botonRoles){
+botonesRoles.forEach(boton=>{
 
-    botonRoles.addEventListener("click",()=>{
+    boton.addEventListener("click",()=>{
 
-        listaRoles.innerHTML = "";
+        const persona = boton.dataset.persona;
+        const zona = document.getElementById("roles-"+persona);
+
+        if(!zona) return;
+
+        zona.innerHTML = "";
 
         const rolesMezclados = mezclar([...rolesAccion]);
+        const rolesSeleccionados = rolesMezclados.slice(0,2);
 
-        equipo.forEach((persona,index)=>{
+        rolesSeleccionados.forEach((rol,index)=>{
 
             const div = document.createElement("div");
-            div.classList.add("tarjeta-rol");
+            div.classList.add("rolItem");
+            div.innerHTML = rol;
 
-            div.innerHTML = "🔥 " + persona + " → " + rolesMezclados[index];
-
-            listaRoles.appendChild(div);
+            zona.appendChild(div);
 
             setTimeout(()=>{
                 div.classList.add("visible");
@@ -930,8 +926,10 @@ if(botonRoles){
 
     });
 
-}
+});
+
 </script>
+
 
 </body>
 <footer>
