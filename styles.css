@@ -2,7 +2,7 @@
 /* 🌴 RESET GENERAL */
 /* ============================= */
 html, body{
-    overflow-x:hidden;
+    
 }
 body{
     margin:0;
@@ -1051,7 +1051,7 @@ figcaption a:hover{
 
 .carta3D{
     position:relative;
-    overflow:;
+    overflow-x:hidden;
 }
 
 .carta3D::after{
