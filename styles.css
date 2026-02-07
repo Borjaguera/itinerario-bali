@@ -1051,7 +1051,7 @@ figcaption a:hover{
 
 .carta3D{
     position:relative;
-    overflow:hidden;
+    overflow:;
 }
 
 .carta3D::after{
