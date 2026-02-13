@@ -1202,7 +1202,20 @@ function actualizarProgreso(){
     const porcentaje = (marcados / checks.length) * 100;
 
     barra.style.width = porcentaje + "%";
+
+    // 🔥 COLOR INTELIGENTE
+    if(porcentaje < 30){
+        barra.style.background = "linear-gradient(90deg,#ef4444,#dc2626)"; // rojo
+    }
+    else if(porcentaje < 70){
+        barra.style.background = "linear-gradient(90deg,#f97316,#ea580c)"; // naranja
+    }
+    else{
+        barra.style.background = "linear-gradient(90deg,#95d5b2,#52b788)"; // verde bali
+    }
+
 }
+
 
 // ejecutar al cargar
 actualizarProgreso();
