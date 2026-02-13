@@ -1158,7 +1158,26 @@ window.addEventListener("load", async function(){
     });
 
 });
+/* =====================================
+🎒 CHECKLIST GUARDADA
+===================================== */
 
+const checks = document.querySelectorAll(".checkItem");
+
+// cargar estado guardado
+checks.forEach((check,index)=>{
+
+    const estado = localStorage.getItem("check-"+index);
+
+    if(estado === "true"){
+        check.checked = true;
+    }
+
+    check.addEventListener("change",()=>{
+        localStorage.setItem("check-"+index, check.checked);
+    });
+
+});
 </script>
 </body>
 <footer>
