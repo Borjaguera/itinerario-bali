@@ -1182,6 +1182,35 @@ checks.forEach((check,index)=>{
     });
 
 });
+    /* =====================================
+📊 ACTUALIZAR BARRA PROGRESO
+===================================== */
+
+function actualizarProgreso(){
+
+    const checks = document.querySelectorAll(".checkItem");
+    const barra = document.getElementById("progresoCheck");
+
+    if(!barra) return;
+
+    let marcados = 0;
+
+    checks.forEach(c=>{
+        if(c.checked) marcados++;
+    });
+
+    const porcentaje = (marcados / checks.length) * 100;
+
+    barra.style.width = porcentaje + "%";
+}
+
+// ejecutar al cargar
+actualizarProgreso();
+
+// actualizar cada vez que cambie algo
+document.querySelectorAll(".checkItem").forEach(c=>{
+    c.addEventListener("change", actualizarProgreso);
+});
 </script>
 </body>
 <footer>
