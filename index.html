@@ -852,7 +852,7 @@ window.addEventListener("scroll", () => {
 ===================================== */
 
 const contador = document.getElementById("contador");
-const fechaVuelo = new Date("March 16, 2026 15:15:00").getTime();
+const fechaVuelo = new Date("March 17, 2026 14:20:00").getTime();
 
 function actualizarContador(){
 
@@ -876,7 +876,7 @@ function actualizarContador(){
     if(cajaContador){
         cajaContador.classList.remove("contador-verde","contador-naranja","contador-rojo");
 
-        if(dias > 30){
+        if(dias > 15){
             cajaContador.classList.add("contador-verde");
         }else if(dias > 7){
             cajaContador.classList.add("contador-naranja");
