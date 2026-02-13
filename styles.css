@@ -1338,6 +1338,6 @@ body{
 #progresoCheck{
     height:100%;
     width:0%;
-    background:linear-gradient(90deg,#95d5b2,#52b788);
+    background:#52b788;
     transition:0.4s ease;
 }
